@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Homepage</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <div id="search">
+        <input id="search-field" type="text" name="search-field"/>
+    </div>
+    <div class="container">
+        <div id="clock"></div>
+        <div class="bookmark-container">
+            <div class="bookmark-set">
+                <div class="bookmark-title">Linux/Tech</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://flathub.org/home" target="_self">Flathub</a>
+                    <a class="bookmark" href="https://forum.manjaro.org/" target="_self">Manjaro Forum</a>
+                    <a class="bookmark" href="https://wiki.archlinux.org/" target="_self">Arch Wiki</a>
+                </div>
+            </div>
+
+            <div class="bookmark-set">
+                <div class="bookmark-title">News</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://www.linuxjournal.com" target="_self">Linux Journal</a>
+                    <a class="bookmark" href="https://itsfoss.com/" target="_self">It's Foss</a>
+                    <a class="bookmark" href="https://www.acs.org.au/" target="_self">Australian Computer Society</a>
+                    <a class="bookmark" href="https://www.fsf.org/" target="_self">Free Software Foundation</a>
+                </div>
+            </div>
+
+            <div class="bookmark-set">
+                <div class="bookmark-title">Social/Coding</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://reddit.com" target="_self">Reddit</a>
+                    <a class="bookmark" href="https://gitlab.com/" target="_self">GitLab</a>
+                    <a class="bookmark" href="https://github.com/" target="_self">Github</a>
+                    <a class="bookmark" href="https://facebook.com" target="_self">Facebook</a>
+                </div>
+            </div>
+
+            <div class="bookmark-set">
+                <div class="bookmark-title">Video</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://youtube.com" target="_self">YouTube</a>
+                    <a class="bookmark" href="https://lbry.tv" target="_self">LBRY</a>
+                    <a class="bookmark" href="https://www.twitch.tv/" target="_self">Twitch TV</a>
+                </div>
+            </div>
+
+            <div class="bookmark-set">
+            <div class="bookmark-title">Other</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://amazon.com.au" target="_self">Amazon</a>
+                    <a class="bookmark" href="https://ilearn.mq.edu.au/login/index.php" target="_self">Macquarie iLearn</a>
+                    <a class="bookmark" href="https://mq.okta.com/app/macquarieuniversity_estudent_1/exk8ds58wiNYPiGfN2p7/sso/saml" target="_self">Macquarie eStudent</a>
+                    <a class="bookmark" href="https://www.w3schools.com/" target="_self">W3 Schools</a>
+                    <a class="bookmark" href="https://www.udemy.com/" target="_self">Udemy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("search-field").addEventListener("keydown",  event => {
+            if (event.keyCode === 13) {
+                var val = document.getElementById("search-field").value;
+                window.open("https://google.com/search?q=" + val);
+            }
+        });
+        getTime = () => {
+            let date = new Date(),
+                min = date.getMinutes(),
+                sec = date.getSeconds(),
+                hour = date.getHours();
+
+            return "" +
+                (hour < 10 ? ("0" + hour) : hour) + ":" +
+                (min < 10 ? ("0" + min) : min) + ":" +
+                (sec < 10 ? ("0" + sec) : sec);
+        }
+
+            document.getElementById("clock").innerHTML = getTime();
+            setInterval( () => {
+                document.getElementById("clock").innerHTML = getTime();
+            },100);
+        
+
+        document.addEventListener("keydown", event => {
+            if (event.keyCode == 32) {
+                document.getElementById('search').style.display = 'flex';
+                document.getElementById('search-field').focus();
+            } else if (event.keyCode == 27) {
+                document.getElementById('search-field').value = '';
+                document.getElementById('search-field').blur();
+                document.getElementById('search').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
