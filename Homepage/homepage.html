@@ -20,6 +20,7 @@
                 <div class="bookmark-inner-container">
                     <a class="bookmark" href="https://flathub.org/home" target="_self">Flathub</a>
                     <a class="bookmark" href="https://forum.manjaro.org/" target="_self">Manjaro Forum</a>
+                    <a class="bookmark" href="https://manjaro.org/news/" target="_self">Manjaro News</a>
                     <a class="bookmark" href="https://wiki.archlinux.org/" target="_self">Arch Wiki</a>
                 </div>
             </div>
@@ -70,7 +71,7 @@
         document.getElementById("search-field").addEventListener("keydown",  event => {
             if (event.keyCode === 13) {
                 var val = document.getElementById("search-field").value;
-                window.open("https://google.com/search?q=" + val);
+                window.open("https://google.com/search?q=" + val, "_self");
             }
         });
         getTime = () => {
