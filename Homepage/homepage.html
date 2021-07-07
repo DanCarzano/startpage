@@ -74,7 +74,7 @@
         document.getElementById("search-field").addEventListener("keydown",  event => {
             if (event.keyCode === 13) {
                 var val = document.getElementById("search-field").value;
-                window.open("https://google.com/search?q=" + val, "_self");
+                window.open("https://search.brave.com/search?q=" + val + "&source=web", "_self");
             }
         });
         getTime = () => {
